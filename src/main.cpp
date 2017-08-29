@@ -275,7 +275,7 @@ int main() {
           	{
           		float s = sensor_fusion[i][5];
           		float d = sensor_fusion[i][6];
-          		float safe_dist = 20;
+          		float safe_dist = 22;
 
           		if(d<(2+4*(lane-1)+2) && d>(2+4*(lane-1)-2)) //
           		{
@@ -380,7 +380,8 @@ int main() {
 
           	// >> Speed control
           	//
-          	if(too_close)
+
+          	if(follow_front_car && (car_speed>front_car_speed)) // slow down to follow the leading car
           	{
           		ref_vel -= .224;
           	}
